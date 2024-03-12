@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchBar{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 5px;
+}
+
+img{
+    height: 50px;
+}
+img:hover{
+    transform: scale(1.1);
+}
+
+.left img{
+    margin: 10px 25px 0px 25px;
+    cursor: pointer;
+}
+
+.right img{
+    margin: 10px 25px 0px 0px;
+}
+
+.searchIcon{
+
+    height: 35px;
+}
+
+.search{
+    padding: 10px;
+    width: 350px;
+    border-radius: 10px;
+}
+ .search:hover{
+    border: 3px solid red;
+ }
