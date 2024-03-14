@@ -1077,7 +1077,6 @@ const Resturants = [
         }
         }
 ]
-
 const Cards = ({name,cuisines,avgRating,cloudinaryImageId})=>{
     return(
         <div className="cards">
@@ -1087,6 +1086,7 @@ const Cards = ({name,cuisines,avgRating,cloudinaryImageId})=>{
         <h3>{cuisines.join(", ")}</h3>
         <h4>Ratings : {avgRating} ⭐</h4>
         </div>
+        
     )
 }
 
@@ -1097,6 +1097,7 @@ const Resturant = () => {
         {
             Resturants.map((resturant)=>{
                 return <Cards {...resturant.info}/>
+               
             })
         }
         </div>
@@ -1122,6 +1123,7 @@ const AppLayout = () =>{
         <Header/>
         <Resturant/>
        <Footer/>
+   
         </>
         
     )
