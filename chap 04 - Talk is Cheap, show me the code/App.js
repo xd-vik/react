@@ -1078,39 +1078,30 @@ const Resturants = [
         }
 ]
 
-const Cards = ()=>{
+const Cards = ({name,cuisines,avgRating,cloudinaryImageId})=>{
     return(
         <div className="cards">
             
-            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + Resturants[0].info.cloudinaryImageId} alt="" />
-        <h2>{Resturants[0].info.name}</h2>
-        <h3>{Resturants[0].info.cuisines.join(", ")}</h3>
-        <h4>{Resturants[0].info.avgRating}</h4>
-    
+            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} alt="" />
+        <h2>{name}</h2>
+        <h3>{cuisines.join(", ")}</h3>
+        <h4>Ratings : {avgRating} ⭐</h4>
         </div>
     )
 }
 
 const Resturant = () => {
     return(
-        <>
+        
         <div className="Res">
-        <Cards/>
-        <Cards/>
-        <Cards/>
-        <Cards/>
-        <Cards/>
-        <Cards/>
-        <Cards/>
-        <Cards/>
-        <Cards/>
-        <Cards/>
-
-        <Cards/>
-        <Cards/>
+        {
+            Resturants.map((resturant)=>{
+                return <Cards {...resturant.info}/>
+            })
+        }
         </div>
        
-        </>
+        
         
     )
    
@@ -1118,8 +1109,8 @@ const Resturant = () => {
 
 const Footer  = () =>{
     return(
-        <div className="foooter">
-            <h2>THis is footer</h2>
+        <div className="footer">
+            <p>Made By Vivek In context of Namaste React Assignment</p>
         </div>
     )
 }
@@ -1130,7 +1121,7 @@ const AppLayout = () =>{
         <>
         <Header/>
         <Resturant/>
-       
+       <Footer/>
         </>
         
     )
