@@ -1,2 +1,1 @@
 ## Starting Namaste React Course
-
