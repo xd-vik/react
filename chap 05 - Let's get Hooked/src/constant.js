@@ -1,28 +1,6 @@
-import React, { createElement } from "react";
-import ReactDOM from "react-dom/client";
-import './App.css';
+export const IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
-const Header= ()=>{
-    return(
-        <>
-        <div id="nav">
-            <div className="logo">
-                <img className="logoimg" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_800,h_800/portal/c/logo_2022.jpeg" alt=""  />
-            </div>
-            <div className="menus">
-                <ul>
-                    <li>Home</li>
-                    <li>About us</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-        </>
-    )
-}
-
-const Resturants = [
+export const Resturant = [
     {
         "info": {
         "id": "725082",
@@ -1077,59 +1055,3 @@ const Resturants = [
         }
         }
 ]
-
-const Cards = ({name,cuisines,avgRating,cloudinaryImageId})=>{
-    return(
-        <div className="cards">
-            
-            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} alt="" />
-        <h2>{name}</h2>
-        <h3>{cuisines.join(", ")}</h3>
-        <h4>Ratings : {avgRating} ⭐</h4>
-        </div>
-        
-    )
-}
-
-const Resturant = () => {
-    return(
-        
-        <div className="Res">
-        {
-            Resturants.map((resturant)=>{
-                return <Cards {...resturant.info}/>
-               
-            })
-        }
-        </div>
-       
-        
-        
-    )
-   
-}
-
-const Footer  = () =>{
-    return(
-        <div className="footer">
-            <p>Made By Vivek In context of Namaste React Assignment</p>
-        </div>
-    )
-}
-
-
-const AppLayout = () =>{
-    return(
-        <>
-        <Header/>
-        <Resturant/>
-       <Footer/>
-   
-        </>
-        
-    )
-}
-
-
-const root =  ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout/>)
