@@ -2,12 +2,13 @@ import React, { createElement, useEffect, useState } from 'react'
 import Cards from './Cards'
 import { Resturant } from '../constant'
 import SimEffect from './simEffect';
+import { Link } from "react-router-dom";
 
 
  function filterData(search,Restraun){
      const filterData =  Restraun.filter((res)=>
         res.info.name.toLowerCase().includes(search.toLowerCase())
-     
+
     )
 return filterData;
 }
@@ -25,7 +26,7 @@ const Resturants = () => {
     async function getResturants(){
         const data =  await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.59080&lng=85.13480&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        
+
         setRestraun(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilterRes(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
@@ -42,8 +43,8 @@ const Resturants = () => {
     return (Restraun.length === 0 ? ( <SimEffect/> ) :(
         <>
         <div className="search">
-            <input 
-            type="text" 
+            <input
+            type="text"
             placeholder='Search'
             className='Search-box'
             value={search}
@@ -55,25 +56,27 @@ const Resturants = () => {
             />
             <button onClick={
                 ()=>{
-                    
+
                     const Resdata = filterData(search, Restraun)
                     setFilterRes(Resdata);
                     setData(sync());
                 }
             } >Search</button>
             <div>  {data} </div>
-            </div>  
+            </div>
         <div className="Res">
         {
             filterRes.map((resturant)=>{
-                return <Cards {...resturant.info} key={resturant.info.id}/>
-               
+                return( <Link to={"/resmenu/" + resturant.info.id}>  <Cards {...resturant.info} key={resturant.info.id}/> </Link>
+
+                )
+
             })
         }
-        </div>   
+        </div>
         </>
-  
-        
+
+
     )
     )
 }
