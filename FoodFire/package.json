@@ -1,0 +1,28 @@
+{
+  "name": "food-fire",
+  "version": "1.1.0",
+  "description": "Namaste React live Course",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "author": "xd-vik",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.8.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "formik": "^2.2.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^6.7.0",
+    "yup": "^0.32.11"
+  },
+  "browserslist": [
+    "last 10 versions"
+  ]
+}
